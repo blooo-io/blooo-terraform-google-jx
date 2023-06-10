@@ -39,7 +39,7 @@ resource "google_container_cluster" "jx_cluster" {
   min_master_version = var.min_master_version
 
   cluster_autoscaling {
-    enabled = false
+    enabled = var.cluster_autoscaling
   }
 
   dynamic "private_cluster_config" {

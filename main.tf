@@ -151,17 +151,17 @@ module "cluster" {
   jenkins_x_namespace        = var.jenkins_x_namespace
   force_destroy              = var.force_destroy
 
-  node_machine_type = var.node_machine_type
-  node_disk_size    = var.node_disk_size
-  node_disk_type    = var.node_disk_type
-  node_preemptible  = var.node_preemptible
-  node_spot         = var.node_spot
-  initial_cluster_node_count = var.initial_cluster_node_count
+  node_machine_type                    = var.node_machine_type
+  node_disk_size                       = var.node_disk_size
+  node_disk_type                       = var.node_disk_type
+  node_preemptible                     = var.node_preemptible
+  node_spot                            = var.node_spot
+  initial_cluster_node_count           = var.initial_cluster_node_count
   initial_primary_node_pool_node_count = var.initial_primary_node_pool_node_count
-  autoscaler_min_node_count    = var.autoscaler_min_node_count
-  autoscaler_max_node_count    = var.autoscaler_max_node_count
-  release_channel   = var.release_channel
-  resource_labels   = var.resource_labels
+  autoscaler_min_node_count            = var.autoscaler_min_node_count
+  autoscaler_max_node_count            = var.autoscaler_max_node_count
+  release_channel                      = var.release_channel
+  resource_labels                      = var.resource_labels
 
   create_ui_sa = var.create_ui_sa
   jx2          = var.jx2
@@ -173,6 +173,10 @@ module "cluster" {
   jx_git_operator_version = var.jx_git_operator_version
 
   kuberhealthy = var.kuberhealthy
+
+  node_version        = var.node_version
+  min_master_version  = var.min_master_version
+  cluster_autoscaling = var.cluster_autoscaling
 }
 
 // ----------------------------------------------------------------------------

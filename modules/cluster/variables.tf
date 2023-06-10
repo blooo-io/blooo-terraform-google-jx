@@ -518,3 +518,9 @@ variable "min_master_version" {
   type        = string
   default     = "1.24"
 }
+
+variable "cluster_autoscaling" {
+  description = "Enable cluster autoscaling"
+  type        = bool
+  default     = false
+}

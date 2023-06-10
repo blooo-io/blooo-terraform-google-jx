@@ -344,3 +344,20 @@ variable "kuberhealthy" {
   type        = bool
   default     = true
 }
+
+variable "node_version" {
+  description = "The Kubernetes version to use for the cluster"
+  type        = string
+  default     = "1.24"
+}
+
+variable "min_master_version" {
+  description = "The minimum Kubernetes version for the master"
+  type        = string
+  default     = "1.24"
+}
+variable "cluster_autoscaling" {
+  description = "Enables cluster autoscaling"
+  type        = bool
+  default     = true
+}
