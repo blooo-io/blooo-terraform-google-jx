@@ -505,3 +505,16 @@ variable "content" {
   type        = string
   default     = ""
 }
+
+variable "node_version" {
+  description = "The Kubernetes version to use for the nodes"
+  type        = string
+  default     = "1.24"
+}
+
+
+variable "min_master_version" {
+  description = "Minimum master version"
+  type        = string
+  default     = "1.24"
+}

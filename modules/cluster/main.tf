@@ -36,6 +36,12 @@ resource "google_container_cluster" "jx_cluster" {
   monitoring_service        = var.monitoring_service
   default_max_pods_per_node = local.max_pods_per_node
 
+  min_master_version = var.min_master_version
+
+  cluster_autoscaling {
+    enabled = false
+  }
+
   dynamic "private_cluster_config" {
     for_each = local.enable_private_cluster_config ? [{
       enable_private_nodes    = var.enable_private_nodes
@@ -105,11 +111,12 @@ resource "google_container_node_pool" "primary" {
   location           = var.cluster_location
   cluster            = google_container_cluster.jx_cluster.name
   initial_node_count = var.initial_primary_node_pool_node_count
+  version            = var.node_version
 
   autoscaling {
     location_policy = var.autoscaler_location_policy
-    min_node_count = var.autoscaler_min_node_count
-    max_node_count = var.autoscaler_max_node_count
+    min_node_count  = var.autoscaler_min_node_count
+    max_node_count  = var.autoscaler_max_node_count
   }
 
   node_config {
